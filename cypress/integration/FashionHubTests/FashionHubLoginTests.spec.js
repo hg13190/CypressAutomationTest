@@ -41,4 +41,72 @@ describe('LoginTestsSuite', function() {
             expect($image.is(':visible')).to.be.true
         })
     })
+
+    it('VerifyValidationForBlankCustomerCredentials', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.CustomerBtn().click()
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.EmailValidationTxt().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+        LoginPage.elements.PasswordValidationTxt().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
+
+    it('VerifyValidationForInvalidCustomerEmailId', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.CustomerBtn().click()
+        LoginPage.elements.EmailTxtBox().type('invalidcustomer@gmail.com')
+        LoginPage.elements.PasswordTxtBox().type('hdhillo@gmail.com');
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.InvalidLoginValidation().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
+
+    it('VerifyValidationForInvalidCustomerPassword', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.CustomerBtn().click()
+        LoginPage.elements.EmailTxtBox().type('hdhillo@gmail.com')
+        LoginPage.elements.PasswordTxtBox().type('invalidpassword');
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.InvalidLoginValidation().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
+
+    it('VerifyValidationForBlankDesignerCredentials', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.DesignerBtn().click()
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.EmailValidationTxt().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+        LoginPage.elements.PasswordValidationTxt().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
+
+    it('VerifyValidationForInvalidDesignerEmailId', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.DesignerBtn().click()
+        LoginPage.elements.EmailTxtBox().type('invaliddesigner@gmail.com')
+        LoginPage.elements.PasswordTxtBox().type('Admin@123');
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.InvalidLoginValidation().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
+
+    it('VerifyValidationForInvalidDesignerPassword', function() {
+        HomePage.elements.LoginMenuOption().click()
+        LoginAsPage.elements.DesignerBtn().click()
+        LoginPage.elements.EmailTxtBox().type('hg13190@gmail.com')
+        LoginPage.elements.PasswordTxtBox().type('invalidpassword');
+        LoginPage.elements.LoginBtn().click()
+        LoginPage.elements.InvalidLoginValidation().then($text => {
+            expect($text.is(':visible')).to.be.true
+        })
+    })
 })

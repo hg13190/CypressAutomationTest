@@ -3,8 +3,11 @@
 class LoginPage {
     elements = {
         EmailTxtBox: () => cy.get('#Email'),
+        EmailValidationTxt: () => cy.get('[data-valmsg-for="Email"]'),
         PasswordTxtBox: () => cy.get('#Password'),
-        LoginBtn: () => cy.get('*[value="Login"]')
+        PasswordValidationTxt: () => cy.get('[data-valmsg-for="Password"]'),
+        LoginBtn: () => cy.get('[value="Login"]'),
+        InvalidLoginValidation: () => cy.get('.validation-summary-errors')
     }
 }
 
