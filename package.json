@@ -9,7 +9,7 @@
   "author": "harsh",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.7.0"
+    "cypress": "^9.0.0"
   },
   "dependencies": {
     "cypress-mochawesome-reporter": "^2.3.0",
